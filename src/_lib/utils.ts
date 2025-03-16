@@ -5,7 +5,7 @@ export const getAllowedFileTypesString = (): string =>
 
 export const handleClientSideFileUpload = (
   event: React.ChangeEvent<HTMLInputElement>
-): void => {
+) => {
   const file = event.target.files?.[0];
   if (!file) {
     console.error("fail to import file.");
@@ -20,4 +20,6 @@ export const handleClientSideFileUpload = (
   console.log(`檔案名稱： ${file.name}`);
   console.log(`檔案類型： ${file.type}`);
   console.log(`檔案大小： ${file.size}`);
+
+  return file;
 };
