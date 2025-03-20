@@ -5,10 +5,12 @@ import {
   handleClientSideFileUpload,
 } from "@/_lib/utils";
 import { FileProvider, useFile } from "@/_contexts/FileContext";
+import CustomErrorBoundary from "@/_components/CustomErrorBoundary";
 
 const FileUpload = () => {
   const { file, setFile } = useFile();
   console.log(file);
+
   return (
     <>
       <input
@@ -25,11 +27,13 @@ const FileUpload = () => {
 
 const Index = () => {
   return (
-    <FileProvider>
-      <div>
-        <FileUpload />
-      </div>
-    </FileProvider>
+    <CustomErrorBoundary>
+      <FileProvider>
+        <div>
+          <FileUpload />
+        </div>
+      </FileProvider>
+    </CustomErrorBoundary>
   );
 };
 
